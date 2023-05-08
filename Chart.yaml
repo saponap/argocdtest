@@ -6,18 +6,22 @@ version: 1.7.3
 dependencies:
   - name: admission-controller
     repository: https://charts.sysdig.com
+    condition: admissionController.enabled
     version: ~0.7.28
     alias: admissionController
     condition: admissionController.enabled
   - name: agent
+    condition: agent.enabled
     repository: https://charts.sysdig.com
     version: ~1.7.1
   - name: node-analyzer
     alias: nodeAnalyzer
+    condition: nodeAnalyzer.enabled
     repository: https://charts.sysdig.com
     version: ~1.8.49
   - name: kspm-collector
     alias: kspmCollector
+    condition: global.kspm.deploy
     repository: https://charts.sysdig.com
     version: ~0.1.43
     alias: kspm
