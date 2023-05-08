@@ -131,6 +131,7 @@ nodeAnalyzer:
     apiEndpoint: eu1.app.sysdig.com
 
 secure:
+  enabled: true 
   vulnerabilityManagement:
     newEngineOnly: true
 kspmCollector:
