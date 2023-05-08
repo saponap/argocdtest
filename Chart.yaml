@@ -20,7 +20,6 @@ dependencies:
     repository: https://charts.sysdig.com
     version: ~1.8.49
   - name: kspm-collector
-    alias: kspmCollector
     condition: global.kspm.deploy
     repository: https://charts.sysdig.com
     version: ~0.1.43
