@@ -136,3 +136,5 @@ secure:
     newEngineOnly: true
 kspmCollector:
   apiEndpoint: eu1.app.sysdig.com
+rapidResponse: 
+  enabled: false
