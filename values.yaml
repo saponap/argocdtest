@@ -5,8 +5,6 @@ global:
     accessKey: "102203030"
     secureAPIToken: "2124488322"
     region: "eu1"
-    tags: {}
-  proxy: {}
   kspm:
     deploy: true
 
