@@ -7,7 +7,7 @@ dependencies:
   - name: admission-controller
     repository: https://charts.sysdig.com
     version: ~0.7.28
-    alias: admissionController
+   #alias: admissionController
   - name: agent
     repository: https://charts.sysdig.com
     version: ~1.7.1
