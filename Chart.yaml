@@ -9,7 +9,6 @@ dependencies:
     version: ~0.7.28
     alias: admissionController
   - name: agent
-    condition: agent.enabled
     repository: https://charts.sysdig.com
     version: ~1.7.1
   - name: node-analyzer
