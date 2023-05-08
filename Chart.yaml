@@ -30,7 +30,7 @@ dependencies:
     alias: nodeAnalyzer
     condition: nodeAnalyzer.enabled
   - name: kspm-collector
-     repository: https://charts.sysdig.com
+    repository: https://charts.sysdig.com
    # repository: file://../kspm-collector
     version: ~0.1.43
     alias: kspmCollector
