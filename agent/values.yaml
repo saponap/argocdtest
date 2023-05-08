@@ -67,6 +67,7 @@ nodeAnalyzer:
       deploy: false  
 
     runtimeScanner:
+      deploy: true 
       settings:
         eveEnabled: true
 
@@ -95,6 +96,7 @@ nodeAnalyzer:
           memory: 1536Mi
 
     hostScanner:
+      deploy: true
       scanOnStart: true
       resources:
         requests:
