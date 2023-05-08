@@ -13,9 +13,11 @@ dependencies:
     repository: https://charts.sysdig.com
     version: ~1.7.1
   - name: node-analyzer
+    alias: nodeAnalyzer
     repository: https://charts.sysdig.com
     version: ~1.8.49
   - name: kspm-collector
+    alias: kspmCollector
     repository: https://charts.sysdig.com
     version: ~0.1.43
     alias: kspm
