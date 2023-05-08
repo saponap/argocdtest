@@ -1,0 +1,140 @@
+global:
+  clusterConfig:
+    name: ""
+  sysdig:
+    accessKey: "102203030"
+    secureAPIToken: "2124488322"
+    region: "eu1"
+    tags: {}
+  proxy: {}
+  kspm:
+    deploy: true
+
+  namespace: "sysdig-agent"
+  agentConfigmapName: "sysdig-agent"
+  gke:
+    autopilot: false
+
+admissionController:
+  enabled: false
+
+agent:
+  resources:
+    requests:
+      cpu: 25m
+      memory: 256Mi
+    limits:
+      cpu: 200m
+      memory: 512Mi
+  tolerations:
+  - effect: NoSchedule
+    key: node-role.kubernetes.io/master
+  - effect: NoSchedule
+    key: node-role.kubernetes.io/infra
+    operator: Exists
+  - effect: NoExecute
+    key: node-role.kubernetes.io/infra
+    operator: Exists
+  - effect: NoSchedule
+    key: dedicated
+    operator: Exists  
+  slim:
+      enabled: true
+      resources:
+        requests:
+          cpu: 50m
+          memory: 256Mi
+        limits:
+          cpu: 100m
+          memory: 512Mi
+  ebpf:
+    enabled: true
+
+  sysdig:
+   settings:
+      collector: ingest-alt-eu1.app.sysdig.com
+      collector_port: 443
+      feature:
+        mode: secure_light
+
+nodeAnalyzer:
+  enabled: true
+  nodeAnalyzer:
+    deploy: true
+
+    imageAnalyzer:
+      deploy: false
+
+    hostAnalyzer:
+      deploy: false  
+
+    runtimeScanner:
+      deploy: true
+      settings:
+        eveEnabled: true
+
+      resources:
+        requests:
+          cpu: 25m
+          memory: 256Mi
+          ephemeral-storage: "256Mi"
+        limits:
+          cpu: 100m
+          memory: 2Gi
+          ephemeral-storage: "4Gi"
+
+    benchmarkRunner:
+      deploy: false
+
+    kspmAnalyzer:
+      debug: false
+
+      resources:
+        requests:
+          cpu: 25m
+          memory: 256Mi
+        limits:
+          cpu: 100m
+          memory: 1536Mi
+
+    hostScanner:
+      scanOnStart: true
+      resources:
+        requests:
+          cpu: 25m
+          memory: 150Mi
+          ephemeral-storage: 250Mi
+        limits:
+          cpu: 100m
+          memory: 150Mi
+          ephemeral-storage: 250Mi
+
+    tolerations:
+      - effect: NoSchedule
+        key: node-role.kubernetes.io/master
+      - effect: NoSchedule
+        key: node-role.kubernetes.io/infra
+        operator: Exists
+      - effect: NoExecute
+        key: node-role.kubernetes.io/infra
+        operator: Exists
+      - effect: NoSchedule
+        key: dedicated
+        operator: Exists
+      - effect: NoSchedule
+        key: node-role.kubernetes.io/control-plane
+      - effect: NoSchedule
+        key: node-role.kubernetes.io/controlplane
+        operator: Equal
+        value: "true"
+      - effect: NoExecute
+        key: node-role.kubernetes.io/etcd
+        operator: Equal
+        value: "true"
+    apiEndpoint: eu1.app.sysdig.com
+
+secure:
+  vulnerabilityManagement:
+    newEngineOnly: true
+kspmCollector:
+  apiEndpoint: eu1.app.sysdig.com
