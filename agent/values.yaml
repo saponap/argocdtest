@@ -67,7 +67,6 @@ nodeAnalyzer:
       deploy: false  
 
     runtimeScanner:
-      deploy: true
       settings:
         eveEnabled: true
 
